@@ -20,10 +20,10 @@
 <h2>Функции системы</h2>
 <ul class="list-group list-group-flush">
 <li class="list-group-item list-group-item-primary">
-    <a href="#">Товары</a>
+    <a href="/shop/product">Товары</a>
 </li>
 <li class="list-group-item list-group-item-info">
-    <a href="#">Производители</a>
+    <a href="/shop/manufacturer">Производители</a>
 </li>
 </ul>
  </div>

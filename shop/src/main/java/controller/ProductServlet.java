@@ -1,17 +1,16 @@
 package controller;
 
+import domain.Product;
+import domain.Manufacturer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 
-/**
- * Servlet implementation class ProductServlet
- */
-@WebServlet("/HelloProductServlet")
+import java.io.IOException;
+
+@WebServlet("/product") // URL для доступа к JSP
 public class ProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -19,18 +18,15 @@ public class ProductServlet extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
-        try {
-            writer.println("<h2>Привет, это ProductServlet</h2>");
-        } finally {
-            writer.close(); 
-        }
+
+      
+        // Перенаправляем на JSP
+        request.getRequestDispatcher("/views/product.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }

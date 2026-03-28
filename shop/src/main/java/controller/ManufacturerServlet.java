@@ -1,17 +1,15 @@
 package controller;
 
+import domain.Manufacturer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 
-/**
- * Servlet implementation class ManufacturerServlet
- */
-@WebServlet("/HelloManufacturerServlet")
+import java.io.IOException;
+
+@WebServlet("/manufacturer") // URL для доступа к JSP
 public class ManufacturerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -19,18 +17,14 @@ public class ManufacturerServlet extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
-        try {
-            writer.println("<h2>Привет, это ManufacturerServlet</h2>");
-        } finally {
-            writer.close(); 
-        }
+
+        // Перенаправляем на JSP
+        request.getRequestDispatcher("/views/manufacturer.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
