@@ -62,13 +62,12 @@ type="button"
  onclick="fillProductModal('${p.getId()}', '${p.getName()}', '${p.getSize()}', '${p.getWeight()}', '${p.getManufacturer().getId()}')">
  <img src="images/icon-edit.png" width="20" height="20" alt="Редактировать">
 </button>
+<td>
+    <button type="submit" name="action" value="delete" class="btn btn-outline-danger"
+            onclick="return confirmDelete('товар', '${p.name}')">
+        <img src="images/icon-delete.png" width="20" height="20" alt="Удалить">
+    </button>
 </td>
-    <td>
-        <button type="submit" name="action" value="delete" class="btn btn-outline-danger">
-    	<img src="images/icon-delete.png" width="20" height="20" alt="Удалить">
-</button>
-
-    </td>
 
 </form>
 
@@ -147,6 +146,9 @@ function fillProductModal(id, name, size, weight, manufacturerId) {
     document.getElementById("pSize").value = size;
     document.getElementById("pWeight").value = weight;
     document.getElementById("pManufacturer").value = manufacturerId;
+}
+function confirmDelete(type, name) {
+    return confirm(`Вы действительно хотите удалить ${type} "${name}"?`);
 }
 </script>
 </body>

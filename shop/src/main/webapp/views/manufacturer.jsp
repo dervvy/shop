@@ -55,11 +55,12 @@
 </button>
 </td>
 
-    <td>
-        <button type="submit" name="action" value="delete" class="btn btn-outline-danger">
-		<img src="images/icon-delete.png" width="20" height="20" alt="Удалить">
-        </button>
-    </td>
+<td>
+    <button type="submit" name="action" value="delete" class="btn btn-outline-danger"
+            onclick="return confirmDelete('товар', '${p.name}')">
+        <img src="images/icon-delete.png" width="20" height="20" alt="Удалить">
+    </button>
+</td>
 
 </form>
 
@@ -132,6 +133,9 @@ function fillModal(id, name, country, contact, phone) {
     document.getElementById("editCountry").value = country;
     document.getElementById("editContact").value = contact;
     document.getElementById("editPhone").value = phone;
+}
+function confirmDelete(type, name) {
+    return confirm(`Вы действительно хотите удалить ${type} ?`);
 }
 </script>
 </body>
