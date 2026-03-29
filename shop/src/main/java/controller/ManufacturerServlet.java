@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import util.ManufacturerDAO;
 
 import java.io.IOException;
 
@@ -20,7 +21,10 @@ public class ManufacturerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Перенаправляем на JSP
+        ManufacturerDAO dao = new ManufacturerDAO();
+
+        request.setAttribute("manufacturers", dao.getAll());
+
         request.getRequestDispatcher("/views/manufacturer.jsp").forward(request, response);
     }
 

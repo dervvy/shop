@@ -1,15 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page import="domain.Manufacturer" %>
-<%
-    // Тестовые данные
-    Manufacturer m1 = new Manufacturer(1L, "Samsung", "South Korea", "Иванов И.И.", "+7 900 111-22-33");
-    Manufacturer m2 = new Manufacturer(2L, "Apple", "USA", "Смит С.", "+1 555-222-33-44");
-    Manufacturer m3 = new Manufacturer(3L, "Xiaomi", "China", "Ли Л.", "+86 123456789");
-    Manufacturer m4 = new Manufacturer(4L, "Xiafdsfdsomi", "Chifdsfsdna", "Ли fdsdsЛ.", "+86 123456789");
-    Manufacturer[] manufacturers = new Manufacturer[]{m1, m2, m3, m4};
-    pageContext.setAttribute("manufacturers", manufacturers);
-%>
+
 <!DOCTYPE html>
 <html>
 <head>

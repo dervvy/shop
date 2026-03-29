@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import util.ManufacturerDAO;
+import util.ProductDAO;
 
 import java.io.IOException;
 
@@ -21,8 +23,12 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-      
-        // Перенаправляем на JSP
+        ProductDAO productDAO = new ProductDAO();
+        ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+
+        request.setAttribute("products", productDAO.getAll());
+        request.setAttribute("manufacturers", manufacturerDAO.getAll());
+
         request.getRequestDispatcher("/views/product.jsp").forward(request, response);
     }
 

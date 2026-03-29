@@ -1,21 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page import="domain.Product, domain.Manufacturer" %>
-<%
-    // Тестовые производители
-    Manufacturer m1 = new Manufacturer(1L, "Samsung", "South Korea", "Иванов И.И.", "+7 900 111-22-33");
-    Manufacturer m2 = new Manufacturer(2L, "Apple", "USA", "Смит С.", "+1 555-222-33-44");
-    Manufacturer m3 = new Manufacturer(3L, "Xiaomi", "China", "Ли Л.", "+86 123456789");
-    Manufacturer[] manufacturers = new Manufacturer[]{m1, m2, m3};
-    pageContext.setAttribute("manufacturers", manufacturers);
-
-    // Тестовые товары
-    Product p1 = new Product(1L, "Galaxy S23", "6.1\"", 0.195, 1L, m1);
-    Product p2 = new Product(2L, "iPhone 15", "6.7\"", 0.240, 2L, m2);
-    Product p3 = new Product(3L, "Mi 12", "6.2\"", 0.180, 3L, m3);
-    Product[] products = new Product[]{p1, p2, p3};
-    pageContext.setAttribute("products", products);
-%>
 <!DOCTYPE html>
 <html>
 <head>
